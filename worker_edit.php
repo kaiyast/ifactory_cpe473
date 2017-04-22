@@ -2,8 +2,35 @@
 <html lang="en">
 <head>
 	
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+  
+$worker_name = "" ;
+$Color =0 ;
+$Wood = 0;
+$Mechanic =0;
+$Decorate = 0;
+$Packaging = 0;
+$worker_id = $_GET['W_ID'];
+
+$sql = "SELECT * FROM Worker WHERE W_ID = '".$worker_id."'" ;
 	
+	$result = mysqli_query($conn,$sql); 
+	while($row = mysqli_fetch_array($result)) 
+	{
+		$worker_name = $row['W_Name'] ;
+	}
+	$sql = "SELECT * FROM Skill_of_w WHERE W_ID = '".$worker_id."'" ;
+	
+	$result = mysqli_query($conn,$sql); 
+	while($row = mysqli_fetch_array($result)) 
+	{
+		if($row['S_ID'] == 1 )$Color = $row['Point'] ;
+		else if($row['S_ID'] == 2 )$Wood = $row['Point'] ;
+		else if($row['S_ID'] == 3 )$Mechanic = $row['Point'] ;
+		else if($row['S_ID'] == 4 )$Decorate = $row['Point'] ;
+		else if($row['S_ID'] == 5 )$Packaging = $row['Point'] ;
+	}
+?>
   
   </head>
 
@@ -65,44 +92,47 @@
                     <div class="panel">
      
 		                  <div class="panel-heading">
-                          <h3><span class="fa fa-user-plus" aria-hidden="true"></span> Worker</h3> 
+                          <h3><span class="fa fa-user-plus" aria-hidden="true"></span> <?php echo $worker_name  ?></h3> 
                       </div>
  		                  <div class="panel-body">
 
                           <div class="col-md-12 panel-body" style="padding-bottom:30px;">
                             <div class="col-md-12">
-                              <form class="cmxform" id="signupForm" method="get" action="">
+                              <form class="cmxform" id="signupForm" method="POST" action="worker_edit_code.php?W_ID=<?php echo $worker_id?>">
 							  
-							  <div class="col-md-6">
-							      <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                    <input type="text" class="form-text" id="validate_firstname" name="firstname" required>
-                                    <span class="bar"></span>
-                                    <label>Firstname</label>
-                                  </div>
-							  </div>
-                                <div class="col-md-6">
-
-
-                                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                    <input type="text" class="form-text" id="validate_lastname" name="lastname" required>
-                                    <span class="bar"></span>
-                                    <label>Lastname</label>
-                                  </div>
-
-                                </div>
+							  
 
 							 <div class="col-md-6">
 								  <div class="form-group form-animate-text" style=" !important;">
-                                    <input type="text" class="form-text"  name="skill1_request" required>
+                                    <input type="text" class="form-text"  name="Color" value="<?php echo $Color?>" required>
                                     <span class="bar"></span>
-                                    <label>Skill 1 </label>
+                                    <label>Color </label>
                                   </div>
 
 							      <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                    <input type="text" class="form-text"  name="skill2_request" required>
+                                    <input type="text" class="form-text"  name="Wood" value="<?php echo $Wood?>" required>
                                     <span class="bar"></span>
-                                    <label>Skill 2 </label>
+                                    <label>Wood </label>
                                   </div>		
+								  
+								   <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text"  name="Mechanic"  value="<?php echo $Mechanic?>" required>
+                                    <span class="bar"></span>
+                                    <label>Mechanic </label>
+                                  </div>
+								  
+								  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text"  name="Decorate" value="<?php echo $Decorate?>" required>
+                                    <span class="bar"></span>
+                                    <label>Decorate </label>
+                                  </div>
+								  
+								  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text"  name="Packaging" value="<?php echo $Packaging?>" required>
+                                    <span class="bar"></span>
+                                    <label>Packaging </label>
+                                  </div>
+								  
 								  
 							  </div>
 							

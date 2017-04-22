@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+?>
 	
   </head>
 
@@ -81,21 +82,33 @@
 										  <thead>
 											<tr>
 											  <th>Name</th>
-											  <th>ตัดไม้</th>
-											  <th>ทาสี</th>
+											  <?php  $sql = "SELECT * FROM Skill";
+											  $result = mysqli_query($conn,$sql); 
+												while($row = mysqli_fetch_array($result)) 
+													{
+													echo "<th>".$row['S_Name']."</th>";
+															}
+														?>
+											  
 											</tr>
 										  </thead>
 										  <tbody>
-											<tr>
-											  <td data-value="worker_detail.php">สมชาย ชายมาก</td>
-											  <td>5</td>
-											  <td>4</td>
-											</tr>
-											<tr>
-											  <td data-value="worker_detail.php">สมหญิง สาวสวย</td>
-											  <td>7</td>
-											  <td>2</td>
-											</tr>
+										   <?php  $sql = "SELECT * FROM Worker";
+											  $result = mysqli_query($conn,$sql); 
+												while($row = mysqli_fetch_array($result)) 
+													{
+													echo "<tr>
+													<td data-value= 'worker_detail.php?W_ID=".$row['W_ID']."'> ".$row['W_Name']."</td>" ;
+													$sql_J = "SELECT * FROM skill_of_w WHERE skill_of_w.W_ID = ".$row['W_ID']."";
+											  $result_J = mysqli_query($conn,$sql_J); 
+												while($row_J = mysqli_fetch_array($result_J)) 
+												{	echo "<td> ".$row_J['Point']."</td>";}
+												echo "</tr>";
+													
+													
+															}
+														?>
+											
 										  </tbody>
 											</table>
 										  </div>
