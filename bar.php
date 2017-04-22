@@ -19,7 +19,7 @@
                     </li>
                     <li data-value="product.php" class="ripple">
                       <a class="tree-toggle nav-header">
-                       <span  class="fa fa-shopping-cart " href="index.php" ></span> Product
+                       <span  class="fa fa-shopping-cart " href="index.php" ></span> Job
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                     </li>
