@@ -65,7 +65,7 @@
      
 									<div class="panel-heading">
 
-                  <h3>Product 
+                  <h3>Job 
                       <a href="product_add.php">
                       <button class="btn btn-success right" ><span class="fa fa-user-plus" aria-hidden="true"></span> Add</button>
                       </a>    

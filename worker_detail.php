@@ -4,7 +4,8 @@
 	
 <?php include('header.php'); ?>
 	
-  
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
+  <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
   </head>
 
  <body id="mimin" class="dashboard">
@@ -65,53 +66,30 @@
                     <div class="panel">
      
 		                  <div class="panel-heading">
-                          <h3><span class="fa fa-user-plus" aria-hidden="true"></span> Job</h3> 
+                          <h3>สมชาย
+						        <a href="worker_remove.php" ><button class="btn btn-danger right" ><span class="fa fa-trash" aria-hidden="true"></span> Remove </button></a>
+								<a href="worker_edit.php" ><button class="btn btn-warning right" ><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Edit </button></a>
+								
+						  </h3> 
                       </div>
  		                  <div class="panel-body">
 
                           <div class="col-md-12 panel-body" style="padding-bottom:30px;">
                             <div class="col-md-12">
-                              <form class="cmxform" id="signupForm" method="get" action="">
-							  
-							  <div class="col-md-12">
-							      <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                    <input type="text" class="form-text"  name="product_name" required>
-                                    <span class="bar"></span>
-                                    <label>Job Name</label>
-                                  </div>
-							  </div> 		
-							  
-							 <div class="col-md-6">
-								  <div class="form-group form-animate-text" style=" !important;">
-                                    <input type="text" class="form-text"  name="skill1_request" required>
-                                    <span class="bar"></span>
-                                    <label>Skill 1 Request</label>
-                                  </div>
 
-							      <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                    <input type="text" class="form-text"  name="skill2_request" required>
-                                    <span class="bar"></span>
-                                    <label>Skill 2 Request</label>
-                                  </div>		
-								  
-							  </div>
-
-							  
-							  
+							   <h3>Worker Skills</h3> 
+								<div class="col-md-12">
 							
-                                <div class="col-md-12 top-20">
-								<br>
-                                    <input class="submit btn btn-danger " type="submit" value="Submit">
-                              </div>                   
-                            </form>
-
-                          </div>
+										<canvas class="doughnut-chart"></canvas>
+									
+								  </div>
+                            </div>
                         </div>
 
 
 
                       </div>                     
-								  	</div>
+					</div>
 
 								  </div>  
 							  </div>
@@ -147,43 +125,60 @@
 <script src="asset/js/plugins/select2.full.min.js"></script>
 <script src="asset/js/plugins/nouislider.min.js"></script>
 <script src="asset/js/plugins/jquery.validate.min.js"></script>
-
+ <script src="asset/js/plugins/jquery.nicescroll.js"></script>
+     <script src="asset/js/plugins/moment.min.js"></script>
+    <script src="asset/js/plugins/chart.min.js"></script>
 
 <!-- custom -->
 <script src="asset/js/main.js"></script>
 
  <script type="text/javascript">
-  $(document).ready(function(){
+       (function(jQuery){
+ 
 
-    
-  
+        var doughnutData = [
+                {
+                    value: 100,
+                    color:"#4ED18F",
+                    highlight: "#15BA67",
+                    label: "Loggin"
+                },
+                {
+                    value: 250,
+                    color: "#15BA67",
+                    highlight: "#15BA67",
+                    label: "Beta"
+                },
+                {
+                    value: 100,
+                    color: "#5BAABF",
+                    highlight: "#15BA67",
+                    label: "Gamma"
+                },
+                {
+                    value: 40,
+                    color: "#94D7E9",
+                    highlight: "#15BA67",
+                    label: "Peta"
+                },
+                {
+                    value: 120,
+                    color: "#BBE0E9",
+                    highlight: "#15BA67",
+                    label: "X"
+                }
 
+            ];
 
-      $(".dial").knob({
-      height:80
-    });
+             window.onload = function(){
+                var ctx = $(".doughnut-chart")[0].getContext("2d");
+                window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+                    responsive : true,
+                    showTooltips: true
+                });
 
-    $('.dial1').trigger(
-     'configure',
-     {
-       "min":0,
-       "width":80,
-       "max":100,
-       "fgColor":"#87CEEB",
-       "skin":"tron"
-     }
-     );
-
-
-	 
-  });
-
-	     $(".nav li").on("click", function() {
-			//alert($(this).data('value'));
-			document.location.href = $(this).data('value');
-		});
-	
-   
+            };
+        })(jQuery);
 </script>
   <!-- end: Javascript -->
   </body>
