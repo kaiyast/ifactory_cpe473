@@ -65,8 +65,8 @@
      
 									<div class="panel-heading">
 
-                  <h3>Worker 
-                      <a href="worker_add.php">
+                  <h3>Task 
+                      <a href="product_add.php">
                       <button class="btn btn-success right" ><span class="fa fa-user-plus" aria-hidden="true"></span> Add</button>
                       </a>    
                     </h3>
@@ -80,21 +80,17 @@
 										<table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
 										  <thead>
 											<tr>
-											  <th>Name</th>
-											  <th>ตัดไม้</th>
-											  <th>ทาสี</th>
+											  <th>Name </th>
 											</tr>
 										  </thead>
 										  <tbody>
 											<tr>
-											  <td>สมชาย ชายมาก</td>
-											  <td>5</td>
-											  <td>4</td>
+											  <td>ตัดไม้ <button class="btn-danger right"> Remove</button> </td>
+											
 											</tr>
 											<tr>
-											  <td>สมหญิง สาวสวย</td>
-											  <td>7</td>
-											  <td>2</td>
+											    <td>ทาสี <button class="btn-danger right"> Remove</button> </td>
+
 											</tr>
 										  </tbody>
 											</table>
