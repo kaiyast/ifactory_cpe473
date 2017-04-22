@@ -87,12 +87,12 @@
 										  </thead>
 										  <tbody>
 											<tr>
-											  <td>สมชาย ชายมาก</td>
+											  <td data-value="worker_detail.php">สมชาย ชายมาก</td>
 											  <td>5</td>
 											  <td>4</td>
 											</tr>
 											<tr>
-											  <td>สมหญิง สาวสวย</td>
+											  <td data-value="worker_detail.php">สมหญิง สาวสวย</td>
 											  <td>7</td>
 											  <td>2</td>
 											</tr>
@@ -147,7 +147,10 @@
 			document.location.href = $(this).data('value');
 		});
 	
-   
+ 	     $(".table td").on("click", function() {
+			//alert($(this).data('value'));
+			document.location.href = $(this).data('value');
+		});  
 </script>
   <!-- end: Javascript -->
   </body>
