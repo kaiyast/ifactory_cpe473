@@ -65,15 +65,22 @@
                     <div class="panel">
      
 		                  <div class="panel-heading">
-                          <h3>Standart Wood Box </h3> 
+                          <h3>Standart Wood Box
+						        <a href="product_remove.php" ><button class="btn btn-danger right" ><span class="fa fa-trash" aria-hidden="true"></span> Remove </button></a>
+								<a href="product_edit.php" ><button class="btn btn-warning right" ><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Edit </button></a>
+								
+						  </h3> 
                       </div>
  		                  <div class="panel-body">
 
                           <div class="col-md-12 panel-body" style="padding-bottom:30px;">
                             <div class="col-md-12">
 
-							
-
+							   <h3>Skill Request</h3> 
+									<h4>Skill Request1</h4> 
+									<h4>Skill Request2</h4> 
+									<h4>Skill Request3</h4> 
+									<h4>Skill Request4</h4> 
                             </div>
                         </div>
 
