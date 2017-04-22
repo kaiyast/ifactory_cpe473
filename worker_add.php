@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+?>
 	
   
   </head>
@@ -71,7 +72,7 @@
 
                           <div class="col-md-12 panel-body" style="padding-bottom:30px;">
                             <div class="col-md-12">
-                              <form class="cmxform" id="signupForm" method="get" action="">
+                              <form action= "worker_add_code.php " class="cmxform" id="signupForm" method="POST" >
 							  
 							  <div class="col-md-6">
 							      <div class="form-group form-animate-text" style="margin-top:40px !important;">
@@ -93,16 +94,35 @@
 
 							 <div class="col-md-6">
 								  <div class="form-group form-animate-text" style=" !important;">
-                                    <input type="text" class="form-text"  name="skill1_request" required>
+                                    <input type="text" class="form-text"  name="Color" required>
                                     <span class="bar"></span>
-                                    <label>Skill 1 </label>
+                                    <label>Color </label>
                                   </div>
 
 							      <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                    <input type="text" class="form-text"  name="skill2_request" required>
+                                    <input type="text" class="form-text"  name="Wood" required>
                                     <span class="bar"></span>
-                                    <label>Skill 2 </label>
+                                    <label>Wood </label>
                                   </div>		
+								  
+								   <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text"  name="Mechanic" required>
+                                    <span class="bar"></span>
+                                    <label>Mechanic </label>
+                                  </div>
+								  
+								  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text"  name="Decorate" required>
+                                    <span class="bar"></span>
+                                    <label>Decorate </label>
+                                  </div>
+								  
+								  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text"  name="Packaging" required>
+                                    <span class="bar"></span>
+                                    <label>Packaging </label>
+                                  </div>
+								  
 								  
 							  </div>
 							

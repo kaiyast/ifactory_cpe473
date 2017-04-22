@@ -2,7 +2,34 @@
 <html lang="en">
 <head>
 	
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+$worker_name = "" ;
+$Color =0 ;
+$Wood = 0;
+$Mechanic =0;
+$Decorate = 0;
+$Packaging = 0;
+$worker_id = $_GET['W_ID'] ;
+
+$sql = "SELECT * FROM Worker WHERE W_ID = '".$worker_id."'" ;
+	
+	$result = mysqli_query($conn,$sql); 
+	while($row = mysqli_fetch_array($result)) 
+	{
+		$worker_name = $row['W_Name'] ;
+	}
+	$sql = "SELECT * FROM Skill_of_w WHERE W_ID = '".$worker_id."'" ;
+	
+	$result = mysqli_query($conn,$sql); 
+	while($row = mysqli_fetch_array($result)) 
+	{
+		if($row['S_ID'] == 1 )$Color = $row['Point'] ;
+		else if($row['S_ID'] == 2 )$Wood = $row['Point'] ;
+		else if($row['S_ID'] == 3 )$Mechanic = $row['Point'] ;
+		else if($row['S_ID'] == 4 )$Decorate = $row['Point'] ;
+		else if($row['S_ID'] == 5 )$Packaging = $row['Point'] ;
+	}
+?>
 	
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
   <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
@@ -66,9 +93,12 @@
                     <div class="panel">
      
 		                  <div class="panel-heading">
-                          <h3>สมชาย
-						        <a href="worker_remove.php" ><button class="btn btn-danger right" ><span class="fa fa-trash" aria-hidden="true"></span> Remove </button></a>
-								<a href="worker_edit.php" ><button class="btn btn-warning right" ><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Edit </button></a>
+                          <h3>
+						  <?php
+						  echo $worker_name;
+						  ?>
+						        <a href="worker_remove_code.php?W_ID=<?php echo $worker_id?>" ><button class="btn btn-danger right" ><span class="fa fa-trash" aria-hidden="true"></span> Remove </button></a>
+								<a href="worker_edit.php?W_ID=<?php echo $worker_id?>" ><button class="btn btn-warning right" ><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Edit </button></a>
 								
 						  </h3> 
                       </div>
@@ -138,34 +168,34 @@
 
         var doughnutData = [
                 {
-                    value: 100,
+                    value: <?php echo $Color ?>,
                     color:"#4ED18F",
                     highlight: "#15BA67",
-                    label: "Loggin"
+                    label: "Color"
                 },
                 {
-                    value: 250,
+                    value: <?php echo $Wood ?>,
                     color: "#15BA67",
                     highlight: "#15BA67",
-                    label: "Beta"
+                    label: "Wood"
                 },
                 {
-                    value: 100,
+                    value: <?php echo $Mechanic ?>,
                     color: "#5BAABF",
                     highlight: "#15BA67",
-                    label: "Gamma"
+                    label: "Mechanic"
                 },
                 {
-                    value: 40,
+                    value: <?php echo $Decorate ?>,
                     color: "#94D7E9",
                     highlight: "#15BA67",
-                    label: "Peta"
+                    label: "Decorate"
                 },
                 {
-                    value: 120,
+                    value: <?php echo $Packaging ?>,
                     color: "#BBE0E9",
                     highlight: "#15BA67",
-                    label: "X"
+                    label: "Packaging"
                 }
 
             ];
@@ -179,6 +209,11 @@
 
             };
         })(jQuery);
+		$(".nav li").on("click", function() {
+			//alert($(this).data('value'));
+			document.location.href = $(this).data('value');
+		});
+	
 </script>
   <!-- end: Javascript -->
   </body>
