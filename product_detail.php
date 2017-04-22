@@ -4,6 +4,7 @@
 	
 <?php include('header.php'); ?>
 	
+  
   </head>
 
  <body id="mimin" class="dashboard">
@@ -63,41 +64,24 @@
                     
                     <div class="panel">
      
-									<div class="panel-heading">
+		                  <div class="panel-heading">
+                          <h3>Standart Wood Box </h3> 
+                      </div>
+ 		                  <div class="panel-body">
 
-                  <h3>Product 
-                      <a href="product_add.php">
-                      <button class="btn btn-success right" ><span class="fa fa-user-plus" aria-hidden="true"></span> Add</button>
-                      </a>    
-                    </h3>
-                   
-                   </div>
+                          <div class="col-md-12 panel-body" style="padding-bottom:30px;">
+                            <div class="col-md-12">
 
-									<div class="panel-body">
+							
+
+                            </div>
+                        </div>
 
 
-									<div class="responsive-table">
-										<table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-										  <thead>
-											<tr>
-											  <th>Name </th>
-											  <th>Quatity </th>
-											  <th>Time Limit </th>
-											</tr>
-										  </thead>
-										  <tbody>
-											<tr data-value="product_detail.php" >
-											  <td>Standart Wood Box  </td>
-										  	  <td>60</td>
-											  <td>9000</td>
-											</tr>
 
-										  </tbody>
-											</table>
-										  </div>
-									  </div>
-									  
-									</div>
+                      </div>                     
+					</div>
+
 								  </div>  
 							  </div>
            
@@ -122,31 +106,52 @@
 <script src="asset/js/bootstrap.min.js"></script>
 
 
-
 <!-- plugins -->
 <script src="asset/js/plugins/moment.min.js"></script>
-<script src="asset/js/plugins/jquery.datatables.min.js"></script>
-<script src="asset/js/plugins/datatables.bootstrap.min.js"></script>
+<script src="asset/js/plugins/jquery.knob.js"></script>
+<script src="asset/js/plugins/ion.rangeSlider.min.js"></script>
+<script src="asset/js/plugins/bootstrap-material-datetimepicker.js"></script>
 <script src="asset/js/plugins/jquery.nicescroll.js"></script>
+<script src="asset/js/plugins/jquery.mask.min.js"></script>
+<script src="asset/js/plugins/select2.full.min.js"></script>
+<script src="asset/js/plugins/nouislider.min.js"></script>
+<script src="asset/js/plugins/jquery.validate.min.js"></script>
 
 
-    <!-- custom -->
-     <script src="asset/js/main.js"></script>
-<script type="text/javascript">
+<!-- custom -->
+<script src="asset/js/main.js"></script>
+
+ <script type="text/javascript">
   $(document).ready(function(){
-    $('#datatables-example').DataTable();
-  });
+
     
+  
+
+
+      $(".dial").knob({
+      height:80
+    });
+
+    $('.dial1').trigger(
+     'configure',
+     {
+       "min":0,
+       "width":80,
+       "max":100,
+       "fgColor":"#87CEEB",
+       "skin":"tron"
+     }
+     );
+
+
 	 
+  });
+
 	     $(".nav li").on("click", function() {
 			//alert($(this).data('value'));
 			document.location.href = $(this).data('value');
-	});
+		});
 	
-	    $(".table tr").on("click", function() {
-			//alert($(this).data('value'));
-			document.location.href = $(this).data('value');
-	});
    
 </script>
   <!-- end: Javascript -->
